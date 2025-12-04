@@ -1,12 +1,13 @@
 import { HomePage } from './pages/HomePage'
+import { Routes, Route } from 'react-router'
 import './App.css'
 
 function App() {
-
   return (
-    
-      <HomePage />
-    
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/checkout" element={<div>Hola</div>} />
+    </Routes>
   )
 }
 
