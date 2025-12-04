@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <style>
+    .normal{
+        background-color: rgb(25, 135, 84);
+        padding: 10px;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+    .red{
+        background-color: red;
+        padding: 10px;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+    
+  </style>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+        function Button(){
+            const [isButton,setIsButton] = React.useState(true);
+            function buttonCheck(){
+                if(isButton){
+                    setIsButton(false);
+            }else{
+                setIsButton(true);
+            }
+            }
+            const [isShow,setIsShow] = React.useState(false);
+            function hola(){
+                if(isShow){
+                    setIsShow(false);
+                }else{
+                    setIsShow(true);
+                }
+            }
+            return(
+                <>
+                <button className= {isButton ? 'normal' : 'red'} onClick={buttonCheck}>{isButton ? 'ON' : 'OFF'}</button>
+                <input className="input" type = {isShow ? 'text' : 'password'}></input>
+                <button onClick={hola}>Show</button>
+                </>
+            );
+        }
+
+        function App(){
+            return(
+                <Button />
+            );
+        }
+
+
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>

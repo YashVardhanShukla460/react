@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .input {
+            height: 100px;
+            font-size: 6 0px;
+            border: 2px solid black;
+            padding: 10px;
+            margin-bottom: 20px;
+            color: rgb(0, 191, 255);
+        }
+
+        .position {
+            position: relative;
+            height: 650px;
+        }
+
+        .button {
+            position: absolute;
+            left: 50px;
+            bottom: 50px;
+            display: grid;
+            grid-template-columns: 200px 200px 200px 200px;
+        }
+
+        .buttons {
+            height: 100px;
+            background-color: black;
+            color: white;
+        }
+
+        .buttons:hover {
+            background-color: grey;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="position">
+        <div class="input"></div>
+        <div class="button">
+            <button class="buttons">1</button>
+            <button class="buttons">2</button>
+            <button class="buttons">3</button>
+            <button class="buttons">4</button>
+            <button class="buttons">5</button>
+            <button class="buttons">6</button>
+            <button class="buttons">7</button>
+            <button class="buttons">8</button>
+            <button class="buttons">9</button>
+            <button class="buttons">0</button>
+            <button class="buttons">+</button>
+            <button class="buttons">-</button>
+            <button class="buttons">*</button>
+            <button class="buttons">/</button>
+            <button class="buttons">AC</button>
+            <button class="buttons">=</button>
+        </div>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll(".buttons");
+        const input = document.querySelector(".input");
+        let flag = false;
+        buttons.forEach(button => {
+
+            button.addEventListener("click", () => {
+                const buttontext = button.textContent;
+                if (buttontext === "AC") {
+                    input.textContent = "";
+                    flag = false;
+                }
+                else if (buttontext === "=") {
+                    input.textContent = hola(input.textContent);
+                    flag = true;
+                }
+                else {
+                    const isSymbol = buttontext === "+" || buttontext === "-" || buttontext === "*" || buttontext === "/";
+
+
+                    if (flag === true && !isSymbol) {
+                        input.textContent = "";
+                    }
+                    flag = false;
+
+                    input.textContent += buttontext;
+                }
+            })
+        });
+
+        function hola(exp) {
+            try {
+                return eval(exp);
+            }
+            catch {
+                return "enter valid expression";
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
+

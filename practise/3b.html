@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+
+
+        function App(){
+            const[message , setMessage] = React.useState("");
+            function text(event){
+                setMessage(event.target.value);
+            }
+            function reset(){
+                setMessage("");
+            }
+            function example(){
+                setMessage("Hello World");
+            }
+            return(
+                <>
+                <input onChange={text} value={message}/>
+                <button onClick={reset}>Reset</button>
+                <button onClick={example}>Example</button>
+                <p>{message}</p>
+                </>
+            );
+        }
+      const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
