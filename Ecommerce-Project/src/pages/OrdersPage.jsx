@@ -4,6 +4,8 @@ import "./OrdersPage.css";
 export function OrdersPage() {
   return (
     <>
+    <link rel="icon" type="image/svg+xml" href="public/orders-favicon.png" />
+
       <title>Orders</title>
 
       <Header />
@@ -54,11 +56,11 @@ export function OrdersPage() {
               </div>
 
               <div className="product-actions">
-                <a href="/tracking">
+                <Link href="/tracking">
                   <button className="track-package-button button-secondary">
                     Track package
                   </button>
-                </a>
+                </Link>
               </div>
 
               <div className="product-image-container">
@@ -83,11 +85,11 @@ export function OrdersPage() {
               </div>
 
               <div className="product-actions">
-                <a href="/tracking">
+                <Link href="/tracking">
                   <button className="track-package-button button-secondary">
                     Track package
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -132,11 +134,11 @@ export function OrdersPage() {
               </div>
 
               <div className="product-actions">
-                <a href="/tracking">
+                <Link href="/tracking">
                   <button className="track-package-button button-secondary">
                     Track package
                   </button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
