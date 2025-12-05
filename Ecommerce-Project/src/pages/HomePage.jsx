@@ -1,8 +1,13 @@
 import { Header } from "../components/Header.jsx";
+import axios from "axios";
 import { products } from "../../StartingCode/data/products.js";
 import "./HomePage.css";
 
 export function HomePage() {
+  axios.get("http://localhost:3000/api/products").then((response) => {
+    console.log(response.data);
+    });
+
   return (
     <>
       <link rel="icon" type="image/svg+xml" href="public/home-favicon.png" />
@@ -17,10 +22,7 @@ export function HomePage() {
             return (
               <div key={product.id} className="product-container">
                 <div className="product-image-container">
-                  <img
-                    className="product-image"
-                    src={product.image}
-                  />
+                  <img className="product-image" src={product.image} />
                 </div>
 
                 <div className="product-name limit-text-to-2-lines">
@@ -39,7 +41,9 @@ export function HomePage() {
                   </div>
                 </div>
 
-                <div className="product-price">${(product.priceCents / 100).toFixed(2)}</div>
+                <div className="product-price">
+                  ${(product.priceCents / 100).toFixed(2)}
+                </div>
 
                 <div className="product-quantity-container">
                   <select>
